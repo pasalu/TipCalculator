@@ -9,50 +9,83 @@
                 tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/decrementBill"
+        android:id="@+id/bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="10dp"
         android:hint="@string/bill"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/increment"
-        android:id="@+id/button"
-        android:layout_alignBottom="@+id/decrementBill"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <Button
-        android:id="@+id/incrementBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/decrement"
-        android:layout_alignBottom="@+id/decrementBill"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
 
     <SeekBar
         android:id="@+id/tipPercent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/button"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bill"
         android:max="100"
         android:progress="15"/>
 
     <TextView
+        android:id="@+id/tipPercentText"
+        android:layout_below="@+id/tipPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text=""
-        android:id="@+id/tipPercentText"
-        android:layout_below="@+id/tipPercent"
         android:layout_centerHorizontal="true"/>
 
+    <NumberPicker
+        android:id="@+id/numberOfPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_below="@+id/tipPercentText">
+    </NumberPicker>
+
+    <!--TODO: Make sure this is aligned when you switch to horizontal layout-->
+    <TextView
+        android:id="@+id/numberOfPeopleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numberOfPeople"
+        android:layout_toEndOf="@+id/numberOfPeople"
+        android:layout_below="@+id/tipPercentText"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/person"/>
+
+    <TextView
+        android:id="@+id/tipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/tip_amount"
+        android:layout_below="@+id/numberOfPeople"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/total"
+        android:layout_below="@+id/tipAmount"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/total"
+        android:onClick="onCalculateClick"/>
 </RelativeLayout>
